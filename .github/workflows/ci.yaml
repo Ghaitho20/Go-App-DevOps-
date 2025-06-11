@@ -31,17 +31,21 @@ jobs:
 
     - name: Test
       run: go test ./...
-code-quality:
-  runs-on: ubuntu-latest
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Set up Go 1.22
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.22
 
-    - name: Run golangci-lint
-      uses: golangci/golangci-lint-action@v8
-      with:
-        version: v1.56.2
+      - name: Run golangci-lint
+        uses: golangci/golangci-lint-action@v8
+        with:
+          version: v1.56.2
 
 
   
@@ -93,3 +97,9 @@ code-quality:
         git add helm/go-web-app-chart/values.yaml
         git commit -m "Update tag in Helm chart"
         git push
+
+
+
+
+
+
