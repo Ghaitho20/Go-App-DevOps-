@@ -2,7 +2,7 @@ replicaCount: 1
 image:
   repository: ghaitho20/go-web-app
   pullPolicy: IfNotPresent 
-  tag: "15589898279"
+  tag: "15590386641"
 ingress:
   enabled: false
   className: ""
